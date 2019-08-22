@@ -31,6 +31,24 @@ const Router = express.Router()
  * 
  * TODO: Put all request handlers here
  */
+Router.get('/newanime', (req, res) => {
+  
+    res.render("/createform");
+
+
+})
+
+Router.get("/", (req, res) => { 
+    AnimeApi.getAllAnime()
+      .then(anime => {
+          console.log(anime)
+          
+ 
+        //res.render("issues/issues", { issues });
+        // res.send(issues)
+        res.render("/", { anime })
+      });
+  });
 
 /* Step 5
  *
