@@ -47,7 +47,7 @@ Router.get("/", (req, res) => {
  
         //res.render("issues/issues", { issues });
         // res.send(issues)
-        res.render("/anime/favoriteanime", { anime })
+        res.render("anime/favoriteanime", { anime })
       });
   });
 
