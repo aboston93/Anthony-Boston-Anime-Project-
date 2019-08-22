@@ -58,7 +58,7 @@ let AnimeSchema = mongoose.Schema({
  * NOTE: skip this if you are not using mongoose
  *
  */const animeCollection = mongoose.model('anime', AnimeSchema)
- const AuthorCollection = mongoose.model('anime',AuthorSchema)
+
 
 /* Step 4
  *
@@ -91,14 +91,14 @@ function getAllAnime() {
 
 
 
-      const CreateAuthor = () =>
-  AuthorCollection.create({ name: "One Punch Man", created: new Date(), genre: "Harem ", StartDate: new Date(),
-  EndDate:new Date(), mainCharacter:"Saitama" , type:"shounen", creator:"mikashi" 
-      })
+//       const CreateAuthor = () =>
+//   AuthorCollection.create({ name: "One Punch Man", created: new Date(), genre: "Harem ", StartDate: new Date(),
+//   EndDate:new Date(), mainCharacter:"Saitama" , type:"shounen", creator:"mikashi" 
+//       })
 
-function getAllAuthor() {
-    return AuthorCollection.find()
-  }
+// function getAllAuthor() {
+//     return AuthorCollection.find()
+//   }
 
 //  * TODO: export all functions from this file by adding their names as keys to this
 //  * object
@@ -106,6 +106,4 @@ function getAllAuthor() {
 module.exports = {
   CreateAnime,
   getAllAnime,
-  CreateAuthor,
-  getAllAuthor
 }
