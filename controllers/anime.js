@@ -50,7 +50,16 @@ Router.get("/", (req, res) => {
         res.render("anime/favoriteanime", { anime })
       });
   });
-
+  
+  Router.post("/", (req, res) => {
+    console.log("Post hit")
+    AnimeApi.addNewAnime(req.body)
+      .then(() => {
+          console.log("Post hit0")
+        res.redirect("/");
+        
+      });
+  });
 /* Step 5
  *
  * TODO: delete this handler; it's just a sample

@@ -76,7 +76,14 @@ const CreateAnime = () =>
 function getAllAnime() {
         return animeCollection.find()
       }
-
+function addNewAnime(newanime) {
+        //make sure that the isActive is either true or false.
+        //if you're using a checkbox in an HTML form then
+        //if the checkbox is unselected and you submit the form
+        //isActive will not be in the account object
+      
+        return animeCollection.create(newanime);
+      }
 
 
 
@@ -106,4 +113,5 @@ function getAllAnime() {
 module.exports = {
   CreateAnime,
   getAllAnime,
+  addNewAnime
 }
