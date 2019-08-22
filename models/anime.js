@@ -65,7 +65,7 @@ let AnimeSchema = mongoose.Schema({
 // }
 const CreateAnime = () =>
   animeCollection.create({ name: "One Punch Man", created: new Date(), genre: "Harem ", StartDate: new Date(),
-  EndDate:new Date(), mainCharacter:"Saitama" , type:"shounen", creator:"mikashi"
+  EndDate:new Date(), mainCharacter:"Saitama" , type:"shounen", creator:"mikashi" 
       })
 
 function getAllAnime() {

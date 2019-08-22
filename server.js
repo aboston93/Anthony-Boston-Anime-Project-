@@ -11,13 +11,14 @@
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
+const mongooose = require("./models/connection.js")
 
 /* Step 2
  * 
  * import routers from controllers/
  *
  */
-const { templateRouter } = require('./controllers/template.js')
+const { Router } = require('./controllers/anime.js')
 
 
 /* Step 3
@@ -61,7 +62,7 @@ app.set('view engine', 'hbs')
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
-app.use('/helloworld', templateRouter)
+app.use('/', Router)
 
 /* Step 5
  *
