@@ -1,10 +1,3 @@
-let AnimeSchema = mongoose.Schema({
-    name: String,
-    created: Date,
-    genre: String,
-    type: String,
-    mainCharacter
-  });
 
 
 
@@ -37,6 +30,18 @@ global.sampleModel = [];
  *
  */
 let AnimeSchema = mongoose.Schema({
+    name: String,
+    created: Date,
+    genre: String,
+    type: String,
+    StartDate:Date,
+    mainCharacter:String,
+    EndDate:Date,
+    creator:String
+  });
+
+
+  let AuthorSchema = mongoose.Schema({
     name: String,
     created: Date,
     genre: String,
