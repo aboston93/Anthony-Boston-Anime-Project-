@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
  * This will need to change for every new project you create.
  *
  */
-const connectionString = process.env.MONGODB_URI || "mongodb://localhost/<db-name>";
+const connectionString = process.env.MONGODB_URI || "mongodb://localhost/mongoose";
 
 
 /* Step 2
@@ -22,7 +22,7 @@ if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 }
 else {
-  mongoose.connect('mongodb://localhost/<db-name>');
+  mongoose.connect('mongodb://localhost/mongoose');
 }
 mongoose.connection.on('error', function(err) {
   console.error('MongoDB connection error: ' + err);
