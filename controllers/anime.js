@@ -34,7 +34,7 @@ const Router = express.Router()
  */
 Router.get('/newanime', (req, res) => {
   
-    res.render("/createform");
+    res.render("anime/createform");
 
 
 })
@@ -47,7 +47,7 @@ Router.get("/", (req, res) => {
  
         //res.render("issues/issues", { issues });
         // res.send(issues)
-        res.render("/", { anime })
+        res.render("/anime/favoriteanime", { anime })
       });
   });
 
