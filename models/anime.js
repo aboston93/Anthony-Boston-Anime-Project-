@@ -124,6 +124,7 @@ module.exports = {
   CreateAnime,
   getAllAnime,
   addNewAnime,
-  DeleteAnime
+  DeleteAnime,
+  GetAnime
   
 }
