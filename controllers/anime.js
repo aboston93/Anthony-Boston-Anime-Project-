@@ -34,18 +34,28 @@ const AuthorRouter = express.Router()
  * 
  * TODO: Put all request handlers here
  */
-Router.get('/newanime/', (req, res) => {
+Router.get('/newanime', (req, res) => {
 
     res.render("anime/createform");
 
 
 })
-AuthorRouter.get('/newauthor/', (req, res) => {
+AuthorRouter.get('/newauthor', (req, res) => {
 
     res.render("author/createform");
 
 
 })
+
+
+AuthorRouter.get('/updateauthor', (req, res) => {
+
+    res.render("author/editauthor");
+
+
+})
+
+
 
 AuthorRouter.get("/authorlist", (req, res) => {
     AuthorApi.getAllAuthor()
@@ -101,6 +111,14 @@ AuthorRouter.post("/authorlist", (req, res) => {
         });
     });
 
+
+    AuthorRouter.put("/:id", (req, res) => {
+        AuthorApi.updateAuthor(req.params.id, req.body)
+          .then(() => {
+            res.redirect("/author/authorlist", { authorupdate});
+          });
+      });
+
 Router.delete("/:id", (req, res) => {
     console.log('delete anime run')
     AnimeApi.DeleteAnime(req.params.id)
@@ -125,5 +143,6 @@ Router.delete("/:id", (req, res) => {
  *
  */
 module.exports = {
-    Router
+    Router,
+    AuthorRouter
 }

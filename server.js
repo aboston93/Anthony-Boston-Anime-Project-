@@ -63,6 +63,7 @@ app.set('view engine', 'hbs')
  * the paths defined in the router.
  */
 app.use('/anime', Router)
+app.use('/Author', AuthorRouter)
 
 /* Step 5
  *

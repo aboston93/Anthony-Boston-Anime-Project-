@@ -86,7 +86,15 @@ function GetAuthor(authorid) {
     return AuthorCollection.findById(authorid);
   }
 
+  function updateAuthor(authorid, updatedauthor) {
+    //make sure that the isActive is either true or false.
+    //if you're using a checkbox in an HTML form then
+    //if the checkbox is unselected and you submit the form
+    //isActive will not be in the account object
+    author.isActive = author.isActive ? true : false;
   
+    return AuthorCollection.updateOne({ _id: author }, { ...author });
+  }  
 
 
 
@@ -115,6 +123,7 @@ module.exports = {
   getAllAuthor,
   addNewAuthor,
   DeleteAuthor,
-  GetAuthor
+  GetAuthor,
+  updateAuthor
   
 }
