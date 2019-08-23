@@ -48,7 +48,7 @@ Router.get("/:id", (req, res) => {
       });
   });
 
-Router.get("/", (req, res) => { 
+Router.get("/anime", (req, res) => { 
     AnimeApi.getAllAnime()
       .then(anime => {
           console.log(anime)
