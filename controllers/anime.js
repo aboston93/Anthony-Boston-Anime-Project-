@@ -38,17 +38,8 @@ Router.get('/newanime', (req, res) => {
 
 
 })
-Router.get("/:id", (req, res) => {
-    AnimeApi.GetAnime(req.params.id)
-      .then(animeid => {
-        //create a View on the single account and send it to the user
-        //note: { account } the same as writing { account: account }
-        res.render("single anime", { animeid }); 
-      
-      });
-  });
 
-Router.get("/favoriteanime", (req, res) => { 
+Router.get("/animelist", (req, res) => { 
     AnimeApi.getAllAnime()
       .then(anime => {
           console.log(anime)
@@ -59,17 +50,24 @@ Router.get("/favoriteanime", (req, res) => {
         res.render("anime/favoriteanime", { anime })
       });
   });
-  
-  Router.post("/", (req, res) => {
+  Router.get("/:id", (req, res) => {
+    AnimeApi.GetAnime(req.params.id)
+      .then(animeid => {
+        //create a View on the single account and send it to the user
+        //note: { account } the same as writing { account: account }
+        res.render("single anime", { animeid }); 
+      
+      });
+  });
+  Router.post("/newanime", (req, res) => {
     console.log("Post hit")
     AnimeApi.addNewAnime(req.body)
       .then(() => {
           console.log("Post hit0")
-        res.redirect("/");
+        res.redirect("/animelist");
         
       });
   });
-  
 
    Router.delete("/:id", (req, res) => { 
     AnimeApi.DeleteAnime(req.params.id)
@@ -79,7 +77,7 @@ Router.get("/favoriteanime", (req, res) => {
   });
 
 
- 
+  
 /* Step 5
  *
  * TODO: delete this handler; it's just a sample
