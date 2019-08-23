@@ -17,6 +17,7 @@ const express = require('express')
  * 
  */
 const AnimeApi = require('../models/anime.js')
+const AuthorApi = require('../models/author.js')
 
 /* Step 3 
  * 
@@ -27,61 +28,93 @@ const AnimeApi = require('../models/anime.js')
  * `shopRouter`)
  */
 const Router = express.Router()
+const AuthorRouter = express.Router()
 
 /* Step 4
  * 
  * TODO: Put all request handlers here
  */
-Router.get('/newanime', (req, res) => {
-  
+Router.get('/newanime/', (req, res) => {
+
     res.render("anime/createform");
 
 
 })
+AuthorRouter.get('/newauthor/', (req, res) => {
 
-Router.get("/animelist", (req, res) => { 
+    res.render("author/createform");
+
+
+})
+
+Router.get("/authorlist", (req, res) => {
+    AuthorApi.getAllAuthor()
+        .then(author => {
+            console.log(author)
+
+
+            //res.render("issues/issues", { issues });
+            // res.send(issues)
+            res.render("author/favoriteauthor", { author })
+        });
+});
+Router.get("/animelist", (req, res) => {
     AnimeApi.getAllAnime()
-      .then(anime => {
-          console.log(anime)
-          
- 
-        //res.render("issues/issues", { issues });
-        // res.send(issues)
-        res.render("anime/favoriteanime", { anime })
-      });
-  });
-  Router.get("/:id", (req, res) => {
+        .then(anime => {
+            console.log(anime)
+
+
+            //res.render("issues/issues", { issues });
+            // res.send(issues)
+            res.render("anime/favoriteanime", { anime })
+        });
+});
+
+
+
+Router.get("/:id", (req, res) => {
     AnimeApi.GetAnime(req.params.id)
-      .then(animeid => {
-        //create a View on the single account and send it to the user
-        //note: { account } the same as writing { account: account }
-        res.render("single anime", { animeid }); 
-      
-      });
-  });
-  Router.post("/newanime", (req, res) => {
+        .then(animeid => {
+            //create a View on the single account and send it to the user
+            //note: { account } the same as writing { account: account }
+            res.render("anime/singleanime", { animeid });
+
+        });
+});
+Router.post("/animelist", (req, res) => {
     console.log("Post hit")
     AnimeApi.addNewAnime(req.body)
-      .then(() => {
-          console.log("Post hit0")
-        res.redirect("/animelist");
-        
-      });
-  });
+        .then(() => {
+            console.log("Post hit0")
+            res.redirect("/anime/animelist");
 
-   Router.delete("/:id", (req, res) => { 
+        });
+});
+
+AuthorRouter.post("/authorlist", (req, res) => {
+    console.log("Post hit")
+    AuthorApi.addNewAnime(req.body)
+        .then(() => {
+            console.log("Post hit0")
+            res.redirect("/author/authorlist");
+
+        });
+    });
+
+Router.delete("/:id", (req, res) => {
+    console.log('delete anime run')
     AnimeApi.DeleteAnime(req.params.id)
-      .then(() => {
-        res.redirect("/");
-      });
-  });
+        .then(() => {
+            res.redirect("/anime/animelist");
+        });
+});
 
 
-  
+
 /* Step 5
  *
  * TODO: delete this handler; it's just a sample
- */ 
+ */
 // Router.get('/', (req, res) => {
 //   res.send(AnimeApi.getHelloWorldString())
 // })
@@ -92,5 +125,5 @@ Router.get("/animelist", (req, res) => {
  *
  */
 module.exports = {
-  Router
+    Router
 }
