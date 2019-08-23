@@ -16,8 +16,7 @@ const express = require('express')
  * controller you need.
  * 
  */
-const AnimeApi = require('../models/anime.js')
-const AuthorApi = require('../models/author.js')
+const AuthorApi = require('../models/anime.js')
 
 /* Step 3 
  * 
@@ -28,7 +27,6 @@ const AuthorApi = require('../models/author.js')
  * `shopRouter`)
  */
 const Router = express.Router()
-const AuthorRouter = express.Router()
 
 /* Step 4
  * 
@@ -40,24 +38,7 @@ Router.get('/newanime/', (req, res) => {
 
 
 })
-AuthorRouter.get('/newauthor/', (req, res) => {
 
-    res.render("author/createform");
-
-
-})
-
-AuthorRouter.get("/authorlist", (req, res) => {
-    AuthorApi.getAllAuthor()
-        .then(author => {
-            console.log(author)
-
-
-            //res.render("issues/issues", { issues });
-            // res.send(issues)
-            res.render("author/favoriteauthor", { author })
-        });
-});
 Router.get("/animelist", (req, res) => {
     AnimeApi.getAllAnime()
         .then(anime => {
@@ -69,18 +50,15 @@ Router.get("/animelist", (req, res) => {
             res.render("anime/favoriteanime", { anime })
         });
 });
+// Router.get("/:id", (req, res) => {
+//     AnimeApi.GetAnime(req.params.id)
+//         .then(animeid => {
+//             //create a View on the single account and send it to the user
+//             //note: { account } the same as writing { account: account }
+//             res.render("anime/singleanime", { animeid });
 
-
-
-Router.get("/:id", (req, res) => {
-    AnimeApi.GetAnime(req.params.id)
-        .then(animeid => {
-            //create a View on the single account and send it to the user
-            //note: { account } the same as writing { account: account }
-            res.render("anime/singleanime", { animeid });
-
-        });
-});
+//         });
+// });
 Router.post("/animelist", (req, res) => {
     console.log("Post hit")
     AnimeApi.addNewAnime(req.body)
@@ -91,23 +69,13 @@ Router.post("/animelist", (req, res) => {
         });
 });
 
-AuthorRouter.post("/authorlist", (req, res) => {
-    console.log("Post hit")
-    AuthorApi.addNewAuthor(req.body)
-        .then(() => {
-            console.log("Post hit0")
-            res.redirect("/author/authorlist");
-
-        });
-    });
-
-Router.delete("/:id", (req, res) => {
-    console.log('delete anime run')
-    AnimeApi.DeleteAnime(req.params.id)
-        .then(() => {
-            res.redirect("/anime/animelist");
-        });
-});
+// Router.delete("/:id", (req, res) => {
+//     console.log('delete anime run')
+//     AnimeApi.DeleteAnime(req.params.id)
+//         .then(() => {
+//             res.redirect("/anime/animelist");
+//         });
+// });
 
 
 

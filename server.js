@@ -19,7 +19,7 @@ const mongooose = require("./models/connection.js")
  *
  */
 const { Router } = require('./controllers/anime.js')
-
+const { AuthorRouter } = require('./controllers/anime.js')
 
 /* Step 3
  *
