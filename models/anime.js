@@ -84,9 +84,19 @@ function addNewAnime(newanime) {
       
         return animeCollection.create(newanime);
       }
+      
+function DeleteAnime(animeid){
+
+    return animeCollection.deleteOne({ _id: animeid });
+
+}
 
 
+function GetAnime(animeid) {
+    return animeCollection.findById(animeid);
+  }
 
+  
 
 
 
@@ -113,5 +123,7 @@ function addNewAnime(newanime) {
 module.exports = {
   CreateAnime,
   getAllAnime,
-  addNewAnime
+  addNewAnime,
+  DeleteAnime
+  
 }

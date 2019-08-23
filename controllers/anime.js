@@ -38,6 +38,15 @@ Router.get('/newanime', (req, res) => {
 
 
 })
+Router.get("/:id", (req, res) => {
+    AnimeApi.GetAnime(req.params.id)
+      .then(animeid => {
+        //create a View on the single account and send it to the user
+        //note: { account } the same as writing { account: account }
+        res.render("single anime", { animeid }); 
+      
+      });
+  });
 
 Router.get("/", (req, res) => { 
     AnimeApi.getAllAnime()
@@ -58,6 +67,25 @@ Router.get("/", (req, res) => {
           console.log("Post hit0")
         res.redirect("/");
         
+      });
+  });
+  
+
+   Router.delete("/:id", (req, res) => { 
+    AnimeApi.DeleteAnime(req.params.id)
+      .then(() => {
+        res.redirect("/");
+      });
+  });
+
+
+  Router.get("/:id", (req, res) => {
+    AnimeApi.GetAnime(req.params.id)
+      .then(animeid => {
+        //create a View on the single account and send it to the user
+        //note: { account } the same as writing { account: account }
+        res.render("single anime", { animeid }); 
+      
       });
   });
 /* Step 5
