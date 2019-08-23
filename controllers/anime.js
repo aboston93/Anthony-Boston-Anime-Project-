@@ -79,15 +79,7 @@ Router.get("/favoriteanime", (req, res) => {
   });
 
 
-  Router.get("/:id", (req, res) => {
-    AnimeApi.GetAnime(req.params.id)
-      .then(anime => {
-        //create a View on the single account and send it to the user
-        //note: { account } the same as writing { account: account }
-        res.render("single anime", { anime }); 
-      
-      });
-  });
+ 
 /* Step 5
  *
  * TODO: delete this handler; it's just a sample
