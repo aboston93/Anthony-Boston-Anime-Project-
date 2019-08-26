@@ -47,6 +47,14 @@ AuthorRouter.get('/newauthor', (req, res) => {
 
 })
 
+Router.get('/updateanime', (req, res) => {
+
+    res.render("anime/editanime");
+
+
+})
+
+
 
 AuthorRouter.get('/updateauthor', (req, res) => {
 
@@ -91,6 +99,16 @@ Router.get("/:id", (req, res) => {
 
         });
 });
+
+Router.get("/:id", (req, res) => {
+    AuthorApi.GetAuthor(req.params.id)
+        .then(authorid => {
+            //create a View on the single account and send it to the user
+            //note: { account } the same as writing { account: account }
+            res.render("author/singleauthor", { authorid });
+
+        });
+});
 Router.post("/animelist", (req, res) => {
     console.log("Post hit")
     AnimeApi.addNewAnime(req.body)
@@ -110,12 +128,20 @@ AuthorRouter.post("/authorlist", (req, res) => {
 
         });
     });
+    Router.put("/:id", (req, res) => {
+        AnimeApi.updateAnime(req.params.id, req.body)
+          .then(() => {
+            res.redirect("/anime/animelist", { animeupdate});
+          });
+      });
+
+
 
 
     AuthorRouter.put("/:id", (req, res) => {
         AuthorApi.updateAuthor(req.params.id, req.body)
           .then(() => {
-            res.redirect("/author/authorlist", { authorupdate});
+            res.redirect("/author/authorlsit", { authorupdate});
           });
       });
 
@@ -124,6 +150,14 @@ Router.delete("/:id", (req, res) => {
     AnimeApi.DeleteAnime(req.params.id)
         .then(() => {
             res.redirect("/anime/animelist");
+        });
+});
+
+AuthorRouter.delete("/:id", (req, res) => {
+    console.log('delete anime run')
+    AuthorApi.DeleteAuthor(req.params.id)
+        .then(() => {
+            res.redirect("/author/authorlist");
         });
 });
 

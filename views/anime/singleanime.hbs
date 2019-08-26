@@ -12,8 +12,36 @@
 
 
 <h1>{{createdAt}}</h1>
+<form method="POST" action="/anime/{{animeid._id}}?_method=PUT">
+
+  <!--
+    Template for creating input form for a string object key called stringMember
+    NOTE: for numeric input fields use `type="number"`
+  -->
+  Name<input type="text" value="{{naruto}}" name="{{animeupdate.name}}" />
+  genre<input type="text" value="{{naruto}}" name="{{animeupdate.genre}}" />
+  type<input type="text" value="{{naruto}}" name="{{animeupdate.type}}" />
+  startdate<input type="date" value="{{naruto}}" name="{{animeupdate.StartDate}}" />
+ mainCharacter <input type="text" value="{{naruto}}" name="{{animeupdate.mainCharacter}}" />
+  End Date <input type="string" value="{{naruto}}" name="{{animeupdate.EndDate}}" />
+  Creator<input type="date" value="{{naruto}}" name="{{animeupdate.creator}}" />
+ Year the manga started <input type="date" value="{{naruto}}" name="{{animeupdate.createdAt}}" />
+
+  <!--
+
+  <!-
+    Template for creating input form for a boolean object member
+  -->
+  
+
+   
 
 
-<form method="POST" action="/anime/{{animeid._id}}?_method=DELETE">
+
+  <input type="submit" value="Update Shop" />
+</form>
+
+
+<form method="POST" action="/anime/{{a._id}}?_method=DELETE">
   <input type="submit" value="Delete" />
 </form>
