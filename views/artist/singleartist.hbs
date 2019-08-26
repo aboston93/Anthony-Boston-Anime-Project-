@@ -1,36 +1,36 @@
 <a href="/"></a>
 
-<h1> {{animeid.name}}</h1>
-<h1>{{animeid.genre}}</h1>
-<h1>{{animeid.type}}</h1>
-<h1>{{animeid.StartDate}}</h1>
-<h1>{{animeid.mainCharacter}}</h1>
-<h1>{{animeid.EndDate}}</h1>
-<h1>{{animeid.creator}}</h1>
-<h1>{{createdAt}}</h1>
+<h1> {{artistid.name}}</h1>
+<h1>{{artistid.works}}</h1>
+<h1>{{artistid.style}}</h1>
+<h1>{{artistid.popularwork}}</h1>
+<h1>{{artistid.collab}}</h1>
+<h1>{{artistid.careerDate}}</h1>
+<h1>{{artistid.recent}}</h1>
 
 
 
-<form method="POST" action="/anime/{{animeid.id}}?_method=PUT">
+
+<form method="POST" action="/artist/{{artistid.id}}?_method=PUT">
 
     <!--
     Template for creating input form for a string object key called stringMember
     NOTE: for numeric input fields use `type="number"`
   -->
     <label for="un">name:</label>
-    <input type="text" value="{{updatedanime.name}}" name="name" />
-    <label for="un">genre:</label>
-    <input type="text" value="{{updatedanime.genre}}" name="genre" />
-    <label for="un">type:</label>
-    <input type="text" value="{{updatedanime.type}}" name="type" />
-    <label for="un">start date:</label>
-    <input type="date" value="{{updatedanime.StartDate}}" name="StartDate" />
-    <label for="un">main character:</label>
-    <input type="text" value="{{updatedanime.mainCharacter}}" name="mainCharacter" />
-    <label for="un">When did the Anime end?:</label>
-    <input type="date" value="{{updatedanime.EndDate}}" name="EndDate" />
-    <label for="un">Creator:</label>
-    <input type="string" value="{{updatedanime.creator}}" name="creator" />
+    <input type="text" value="{{updatedartist.name}}" name="name" />
+    <label for="un">works:</label>
+    <input type="text" value="{{updatedartist.works}}" name="works" />
+    <label for="un">style:</label>
+    <input type="text" value="{{updatedartist.style}}" name="style" />
+    <label for="un">most poular work of artist:</label>
+    <input type="string" value="{{updatedanime.popularwork}}" name="popularwork" />
+    <label for="un">main collaborators:</label>
+    <input type="text" value="{{updatedartist.collab}}" name="collab" />
+    <label for="un">When did the Artist career start?:</label>
+    <input type="date" value="{{updatedartist.careerDate}}" name="careerDate" />
+    <label for="un">Most recent work of the artist:</label>
+    <input type="string" value="{{updatedartist.recent}}" name="recent" />
 
 
 
@@ -49,6 +49,6 @@
 </form>
 
 
-<form method="POST" action="/anime/{{animeid.id}}?_method=DELETE">
+<form method="POST" action="/artist/{{artistid.id}}?_method=DELETE">
     <input type="submit" value="Delete" />
 </form>

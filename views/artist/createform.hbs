@@ -1,27 +1,33 @@
 <form method="POST" action="/anime/animelist" >
-    <label name="name">Anime</label>
+    <label name="name">Artist</label>
     <input type="text" name="name" />
     
-    <label for="priority">Date Anime was created</label>
-    <input type="date" name="created" />
+    <label for="priority">works made by artist</label>
+    <input type="string" name="works" />
     
-    <label for="status">genre</label>
-    <input type="text" name="genre" />
+    <label for="status">style of artist</label>
+    <input type="text" name="style" />
     
-    <label for="createdat">type</label>
-    <input type="text" name="type" />
+    <label for="popularowork">artist most popular work</label>
+    <input type="text" name="popularwork" />
     
-    <label for="createdat">StartDate</label>
-    <input type="date" name="StartDate" />
+    <label for="createdat">Most know Collaborators</label>
+    <input type="date" name="collab" />
     
-    <label for="createdat">mainCharacter</label>
-    <input type="text" name="mainChracter" />
+    <label for="careerdate">When did the artist start his Career</label>
+    <input type="text" name="careerDate" />
     
-    <label for="createdat">EndDate</label>
-    <input type="date" name="EndDate" />
+    <label for="createdat">the artists most recent works</label>
+    <input type="date" name="recent" />
     
-    <label for="createdat">creator</label>
-    <input type="text" name="creator" />
+  
+<h1> {{artistid.name}}</h1>
+<h1>{{artistid.works}}</h1>
+<h1>{{artistid.style}}</h1>
+<h1>{{artistid.popularwork}}</h1>
+<h1>{{artistid.collab}}</h1>
+<h1>{{artistid.careerDate}}</h1>
+<h1>{{artistid.recent}}</h1>
 
   
 
