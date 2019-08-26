@@ -12,7 +12,7 @@
 
 
 <h1>{{createdAt}}</h1>
-<form method="POST" action="/anime/{{:_id}}?_method=PUT">
+<form method="POST" action="/anime/{{:index}}?_method=PUT">
 
   <!--
     Template for creating input form for a string object key called stringMember
@@ -42,6 +42,6 @@
 </form>
 
 
-<form method="POST" action="/anime/{{:id}}?_method=DELETE">
+<form method="POST" action="/anime/{{index}}?_method=DELETE">
   <input type="submit" value="Delete" />
 </form>
