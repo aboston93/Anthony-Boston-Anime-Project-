@@ -100,7 +100,7 @@ Router.get("/:id", (req, res) => {
         });
 });
 
-Router.get("/:id", (req, res) => {
+AuthorRouter.get("/:id", (req, res) => {
     AuthorApi.GetAuthor(req.params.id)
         .then(authorid => {
             //create a View on the single account and send it to the user
@@ -141,7 +141,7 @@ AuthorRouter.post("/authorlist", (req, res) => {
     AuthorRouter.put("/:id", (req, res) => {
         AuthorApi.updateAuthor(req.params.id, req.body)
           .then(() => {
-            res.redirect("/author/authorlsit", { authorupdate});
+            res.redirect("/author/authorlist", { authorupdate});
           });
       });
 
