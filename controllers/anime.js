@@ -18,6 +18,7 @@ const express = require('express')
  */
 const AnimeApi = require('../models/anime.js')
 const AuthorApi = require('../models/author.js')
+const ArtistApi = require('../models/artist.js')
 
 /* Step 3 
  * 
@@ -29,6 +30,7 @@ const AuthorApi = require('../models/author.js')
  */
 const Router = express.Router()
 const AuthorRouter = express.Router()
+const ArtistRouter = express.Router()
 
 /* Step 4
  * 
@@ -43,6 +45,13 @@ Router.get('/newanime', (req, res) => {
 AuthorRouter.get('/newauthor', (req, res) => {
 
     res.render("author/createform");
+
+
+})
+
+ArtistRouter.get('/newauthor', (req, res) => {
+
+    res.render("artist/createform");
 
 
 })
@@ -63,6 +72,12 @@ AuthorRouter.get('/updateauthor', (req, res) => {
 
 })
 
+ArtistRouter.get('/updateanime', (req, res) => {
+
+    res.render("artist/editartist");
+
+
+})
 
 
 AuthorRouter.get("/authorlist", (req, res) => {
@@ -87,7 +102,17 @@ Router.get("/animelist", (req, res) => {
             res.render("anime/favoriteanime", { anime })
         });
 });
+ArtistRouter.get("/authorlist", (req, res) => {
+    ArtistApi.getAllArtist()
+        .then(artist => {
+            console.log(artist)
 
+
+            //res.render("issues/issues", { issues });
+            // res.send(issues)
+            res.render("artist/favoriteartist", { artist })
+        });
+});
 
 
 Router.get("/:id", (req, res) => {
@@ -106,6 +131,16 @@ AuthorRouter.get("/:id", (req, res) => {
             //create a View on the single account and send it to the user
             //note: { account } the same as writing { account: account }
             res.render("author/singleauthor", { authorid });
+
+        });
+});
+
+ArtistRouter.get("/:id", (req, res) => {
+    ArtistApi.GetArtist(req.params.id)
+        .then(artistid => {
+            //create a View on the single account and send it to the user
+            //note: { account } the same as writing { account: account }
+            res.render("artist/singleartist", { artistid });
 
         });
 });
@@ -128,10 +163,20 @@ AuthorRouter.post("/authorlist", (req, res) => {
 
         });
     });
+
+    ArtistRouter.post("/authorlist", (req, res) => {
+        console.log("Post hit")
+        ArtistApi.addNewArtist(req.body)
+            .then(() => {
+                console.log("Post hit0")
+                res.redirect("/artist/artistlist");
+    
+            });
+        });
     Router.put("/:id", (req, res) => {
         AnimeApi.updateAnime(req.params.id, req.body)
-          .then(() => {
-            res.redirect("/anime/animelist", { animeupdate});
+          .then((updatedanime) => {
+            res.render("anime/singleanime",{updatedanime});
           });
       });
 
@@ -140,8 +185,16 @@ AuthorRouter.post("/authorlist", (req, res) => {
 
     AuthorRouter.put("/:id", (req, res) => {
         AuthorApi.updateAuthor(req.params.id, req.body)
-          .then(() => {
-            res.redirect("/author/authorlist", { authorupdate});
+          .then((updatedauthor) => {
+            res.redirect("/author/authorlist", { updatedauthor});
+          });
+      });
+
+
+      ArtistRouter.put("/:id", (req, res) => {
+        ArtistApi.updateArtist(req.params.id, req.body)
+          .then((updatedartist) => {
+            res.redirect("/artist/artistlist", { updatedartist});
           });
       });
 
@@ -158,6 +211,14 @@ AuthorRouter.delete("/:id", (req, res) => {
     AuthorApi.DeleteAuthor(req.params.id)
         .then(() => {
             res.redirect("/author/authorlist");
+        });
+});
+
+ArtistRouter.delete("/:id", (req, res) => {
+    console.log('delete anime run')
+    ArtistApi.DeleteArtist(req.params.id)
+        .then(() => {
+            res.redirect("/artist/artistlist");
         });
 });
 

@@ -1,10 +1,10 @@
 
 
 
-/* 
-* Place all functions, classes, and/or DB schemas here for a single 
-* model.
-*/
+  /* 
+ * Place all functions, classes, and/or DB schemas here for a single 
+ * model.
+ */
 
 /* Step 1
  *
@@ -21,7 +21,6 @@ const mongoose = require('./connection.js')
  * your data once you stop running your server.
  *
  */
-global.sampleModel = [];
 
 /* Step 2
  *
@@ -29,26 +28,26 @@ global.sampleModel = [];
  * NOTE: skip this if you are not using mongoose
  *
  */
-let AnimeSchema = mongoose.Schema({
+let ArtistSchema = mongoose.Schema({
     name: String,
-    created: Date,
-    genre: String,
-    type: String,
-    StartDate: Date,
-    mainCharacter: String,
-    EndDate: Date,
-    creator: String
-});
+    works: String,
+    style: String,
+    popularwork: String,
+    collab: String,
+    careerDate:Date,
+    recent:String,
+    
+  });
 
 
-
+ 
 
 /* Step 3
  *
  * TODO: create collection API
  * NOTE: skip this if you are not using mongoose
  *
- */const animeCollection = mongoose.model('anime', AnimeSchema)
+ */const ArtistCollection = mongoose.model('Artist', ArtistSchema)
 
 
 /* Step 4
@@ -59,45 +58,44 @@ let AnimeSchema = mongoose.Schema({
 // function getHelloWorldString() {
 //   return 'hello world'
 // }
-const CreateAnime = () =>
-    animeCollection.create({
-        name: "One Punch Man", created: new Date(), genre: "Harem ", StartDate: new Date(),
-        EndDate: new Date(), mainCharacter: "Saitama", type: "shounen", creator: "mikashi"
-    })
+const CreateArtist = () =>
+ArtistCollection.create({ name: "kishimoto", works: "naruto", style: "Harem ", popularwork: "dxd",
+collab:"studio ghibli", careerDate:"Saitama" , recent:"shounen", 
+      })
+     
 
-function getAllAnime() {
-    return animeCollection.find()
-}
-function addNewAnime(newanime) {
-    //make sure that the isActive is either true or false.
-    //if you're using a checkbox in an HTML form then
-    //if the checkbox is unselected and you submit the form
-    //isActive will not be in the account object
+function getAllArtist() {
+        return ArtistCollection.find()
+      }
+function addNewArtist(newartist) {
+        //make sure that the isActive is either true or false.
+        //if you're using a checkbox in an HTML form then
+        //if the checkbox is unselected and you submit the form
+        //isActive will not be in the account object
+      
+        return ArtistCollection.create(newartist);
+      }
+      
+function DeleteArtist(artistid){
 
-    return animeCollection.create(newanime);
-}
+    return ArtistCollection.deleteOne({ _id: artistid });
 
-function DeleteAnime(animeid) {
-
-    return animeCollection.deleteOne({ _id: animeid });
-
-}
-
-
-function GetAnime(animeid) {
-    return animeCollection.findById(animeid);
 }
 
-function updateAnime(animeid, updatedanime) {
+
+function GetArtist(artistid) {
+    return ArtistCollection.findById(artistid);
+  }
+
+  function updateArtist(artistid, updatedartist) {
     //make sure that the isActive is either true or false.
     //if you're using a checkbox in an HTML form then
     //if the chec kbox is unselected and you submit the form
     //isActive will not be in the account object
 
 
-    return animeCollection.findByIdAndUpdate(animeid, updatedanime)
+    return ArtistCollection.findByIdAndUpdate(artistid, updatedartist)
 }
-
 
 
 
@@ -121,11 +119,11 @@ function updateAnime(animeid, updatedanime) {
 //  * object
 //  */
 module.exports = {
-    CreateAnime,
-    getAllAnime,
-    addNewAnime,
-    DeleteAnime,
-    GetAnime,
-    updateAnime
-
+    CreateArtist,
+    getAllArtist,
+    addNewArtist,
+    DeleteArtist,
+    GetArtist,
+    updateArtist
+  
 }

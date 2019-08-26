@@ -35,7 +35,7 @@ let AuthorSchema = mongoose.Schema({
     popularanime: String,
     firstDate:Date,
     popularchar:String,
-    recent:(String,Date),
+    recent:(String),
   
   });
 
@@ -59,7 +59,7 @@ let AuthorSchema = mongoose.Schema({
 //   return 'hello world'
 // }
 const CreateAuthor = () =>
-AuthorCollection.create({ name: "One Punch Man", works: "naruto", maingenre: "Harem ", popularanime: "dxd",
+AuthorCollection.create({ name: "kishimoto", works: "naruto", maingenre: "Harem ", popularanime: "dxd",
 firstDate:new Date(), popularchar:"Saitama" , recent:"shounen", 
       })
 
@@ -86,16 +86,15 @@ function GetAuthor(authorid) {
     return AuthorCollection.findById(authorid);
   }
 
- function updateAuthor(authorid, updatedauthor) {
+  function updateAuthor(authorid, updatedauthor) {
     //make sure that the isActive is either true or false.
     //if you're using a checkbox in an HTML form then
     //if the chec kbox is unselected and you submit the form
     //isActive will not be in the account object
-    author.isActive = author.isActive ? true : false;
-  
-    return AuthorCollection.updateOne({ _id: author }, { ...author });
-  }  
 
+
+    return animeCollection.findByIdAndUpdate(authorid, updatedauthor)
+}
 
 
 
