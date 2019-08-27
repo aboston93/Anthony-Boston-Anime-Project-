@@ -10,7 +10,9 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.6.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "ember-cli-materialize": "^0.22.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
