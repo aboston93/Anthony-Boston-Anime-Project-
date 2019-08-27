@@ -93,7 +93,7 @@ function GetAuthor(authorid) {
     //isActive will not be in the account object
 
 
-    return animeCollection.findByIdAndUpdate(authorid, updatedauthor)
+    return AuthorCollection.findByIdAndUpdate(authorid, updatedauthor)
 }
 
 

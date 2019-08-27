@@ -47,7 +47,7 @@ let ArtistSchema = mongoose.Schema({
  * TODO: create collection API
  * NOTE: skip this if you are not using mongoose
  *
- */const ArtistCollection = mongoose.model('Artist', ArtistSchema)
+ */const ArtistCollection = mongoose.model('artist', ArtistSchema)
 
 
 /* Step 4

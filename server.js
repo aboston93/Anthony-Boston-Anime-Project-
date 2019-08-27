@@ -20,7 +20,7 @@ const mongooose = require("./models/connection.js")
  */
 const { Router } = require('./controllers/anime.js')
 const { AuthorRouter } = require('./controllers/anime.js')
-const { ArtistRouter } = require('./controllers/artist.js')
+const { ArtistRouter } = require('./controllers/anime.js')
 /* Step 3
  *
  * Register middleware...
@@ -63,7 +63,7 @@ app.set('view engine', 'hbs')
  * the paths defined in the router.
  */
 app.use('/anime', Router)
-app.use('/Author', AuthorRouter)
+app.use('/author', AuthorRouter)
 app.use('/artist', ArtistRouter)
 
 /* Step 5

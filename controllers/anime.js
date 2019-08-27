@@ -49,7 +49,7 @@ AuthorRouter.get('/newauthor', (req, res) => {
 
 })
 
-ArtistRouter.get('/newauthor', (req, res) => {
+ArtistRouter.get('/newartist', (req, res) => {
 
     res.render("artist/createform");
 
@@ -102,7 +102,7 @@ Router.get("/animelist", (req, res) => {
             res.render("anime/favoriteanime", { anime })
         });
 });
-ArtistRouter.get("/authorlist", (req, res) => {
+ArtistRouter.get("/artistlist", (req, res) => {
     ArtistApi.getAllArtist()
         .then(artist => {
             console.log(artist)
@@ -110,7 +110,7 @@ ArtistRouter.get("/authorlist", (req, res) => {
 
             //res.render("issues/issues", { issues });
             // res.send(issues)
-            res.render("artist/favoriteartist", { artist })
+            res.render("artist/artistlist", { artist })
         });
 });
 
@@ -164,7 +164,7 @@ AuthorRouter.post("/authorlist", (req, res) => {
         });
     });
 
-    ArtistRouter.post("/authorlist", (req, res) => {
+    ArtistRouter.post("/artistlist", (req, res) => {
         console.log("Post hit")
         ArtistApi.addNewArtist(req.body)
             .then(() => {
@@ -186,7 +186,7 @@ AuthorRouter.post("/authorlist", (req, res) => {
     AuthorRouter.put("/:id", (req, res) => {
         AuthorApi.updateAuthor(req.params.id, req.body)
           .then((updatedauthor) => {
-            res.redirect("/author/authorlist", { updatedauthor});
+            res.render("/author/authorlist", { updatedauthor});
           });
       });
 
@@ -194,7 +194,7 @@ AuthorRouter.post("/authorlist", (req, res) => {
       ArtistRouter.put("/:id", (req, res) => {
         ArtistApi.updateArtist(req.params.id, req.body)
           .then((updatedartist) => {
-            res.redirect("/artist/artistlist", { updatedartist});
+            res.render("artist/artistlist", { updatedartist});
           });
       });
 
@@ -239,5 +239,6 @@ ArtistRouter.delete("/:id", (req, res) => {
  */
 module.exports = {
     Router,
-    AuthorRouter
+    AuthorRouter,
+    ArtistRouter,
 }
