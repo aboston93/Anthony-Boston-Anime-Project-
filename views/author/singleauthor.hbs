@@ -1,5 +1,14 @@
-<a href="/"></a>
-<h1> {{authorid.name}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your Favorite Anime</title>
+</head>
+<body>
+  <img src="/giphy (1).gif" alt="" srcset="">
+    <h1> {{authorid.name}}</h1>
 <h1> {{authorid.works}}</h1>
 <h1>{{authorid.maingenre}}</h1>
 <h1>{{authorid.popularanime}}</h1>
@@ -53,3 +62,5 @@
 <form method="POST" action="/anime/{{authorid.id}}?_method=DELETE">
     <input type="submit" value="Delete" />
 </form>
+</body>
+</html>

@@ -55,3 +55,15 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+
+h1{
+color: aquamarine;
+}
+
+body{
+    background-image: url(/backgroundwalk.gif);
+    background-size:  cover ;
+    background-attachment: fixed;
+    /* background-image: cover contain; */
+}
