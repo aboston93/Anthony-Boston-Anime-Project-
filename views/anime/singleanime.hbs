@@ -1,40 +1,42 @@
-<a href="/"></a>
+<div class="row">
+    <div class="col s12">This div is 12-columns wide on all screen sizes</div>
+    <div class="col s6">6-columns (one-half)
+        <a href="/anime/{{_id}}">{{animeid}}</a>
+        <h1> {{animeid.name}}</h1>
+        <h1>{{animeid.genre}}</h1>
+        <h1>{{animeid.type}}</h1>
+        <h1>{{animeid.StartDate}}</h1>
+        <h1>{{animeid.mainCharacter}}</h1>
+        <h1>{{animeid.EndDate}}</h1>
+        <h1>{{animeid.creator}}</h1>
+        <h1>{{createdAt}}</h1>
 
-<h1> {{animeid.name}}</h1>
-<h1>{{animeid.genre}}</h1>
-<h1>{{animeid.type}}</h1>
-<h1>{{animeid.StartDate}}</h1>
-<h1>{{animeid.mainCharacter}}</h1>
-<h1>{{animeid.EndDate}}</h1>
-<h1>{{animeid.creator}}</h1>
-<h1>{{createdAt}}</h1>
+    </div>
+    <div class="col s6">6-columns (one-half)
+        <form method="POST" action="/anime/{{animeid.id}}?_method=PUT">
 
-
-
-<form method="POST" action="/anime/{{animeid.id}}?_method=PUT">
-
-    <!--
+            <!--
     Template for creating input form for a string object key called stringMember
     NOTE: for numeric input fields use `type="number"`
   -->
-    <label for="un">name:</label>
-    <input type="text" value="{{updatedanime.name}}" name="name" />
-    <label for="un">genre:</label>
-    <input type="text" value="{{updatedanime.genre}}" name="genre" />
-    <label for="un">type:</label>
-    <input type="text" value="{{updatedanime.type}}" name="type" />
-    <label for="un">start date:</label>
-    <input type="date" value="{{updatedanime.StartDate}}" name="StartDate" />
-    <label for="un">main character:</label>
-    <input type="text" value="{{updatedanime.mainCharacter}}" name="mainCharacter" />
-    <label for="un">When did the Anime end?:</label>
-    <input type="date" value="{{updatedanime.EndDate}}" name="EndDate" />
-    <label for="un">Creator:</label>
-    <input type="string" value="{{updatedanime.creator}}" name="creator" />
+            <label for="un">name:</label>
+            <input type="text" value="{{updatedanime.name}}" name="name" />
+            <label for="un">genre:</label>
+            <input type="text" value="{{updatedanime.genre}}" name="genre" />
+            <label for="un">type:</label>
+            <input type="text" value="{{updatedanime.type}}" name="type" />
+            <label for="un">start date:</label>
+            <input type="date" value="{{updatedanime.StartDate}}" name="StartDate" />
+            <label for="un">main character:</label>
+            <input type="text" value="{{updatedanime.mainCharacter}}" name="mainCharacter" />
+            <label for="un">When did the Anime end?:</label>
+            <input type="date" value="{{updatedanime.EndDate}}" name="EndDate" />
+            <label for="un">Creator:</label>
+            <input type="string" value="{{updatedanime.creator}}" name="creator" />
 
 
 
-    <!--
+            <!--
 
   <!-
     Template for creating input form for a boolean object member
@@ -45,10 +47,12 @@
 
 
 
-    <input type="submit" value="Update Shop" />
-</form>
+            <input type="submit" value="Update Shop" />
+        </form>
 
 
-<form method="POST" action="/anime/{{animeid.id}}?_method=DELETE">
-    <input type="submit" value="Delete" />
-</form>
+        <form method="POST" action="/anime/{{animeid.id}}?_method=DELETE">
+            <input type="submit" value="Delete" />
+        </form>
+    </div>
+</div>
