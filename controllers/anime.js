@@ -186,7 +186,7 @@ AuthorRouter.post("/authorlist", (req, res) => {
     AuthorRouter.put("/:id", (req, res) => {
         AuthorApi.updateAuthor(req.params.id, req.body)
           .then((updatedauthor) => {
-            res.render("/author/authorlist", { updatedauthor});
+            res.redirect("/author/authorlist", { updatedauthor});
           });
       });
 

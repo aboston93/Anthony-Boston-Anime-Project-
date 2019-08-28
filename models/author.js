@@ -35,7 +35,7 @@ let AuthorSchema = mongoose.Schema({
     popularanime: String,
     firstDate:Date,
     popularchar:String,
-    recent:(String),
+    recent:String,
   
   });
 
