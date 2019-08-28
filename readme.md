@@ -1,6 +1,7 @@
-https://git.heroku.com/ancient-tor-99466.git/
 
-https://ancient-tor-99466.herokuapp.com
+
+https://ancient-tor-99466.herokuapp.com/author/newauthor
+
 
 ![wireframe](https://github.com/kaoko/Anthony-Boston-Anime-Project-/blob/master/wireframe/Screen%20Shot%202019-08-28%20at%208.41.25%20AM.png)
 
