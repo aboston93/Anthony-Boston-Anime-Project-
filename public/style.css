@@ -66,9 +66,18 @@ a{
     color: darkred;
     
 }
-/* a:hover{
+a:hover{
     color:gold;
     text-decoration: dotted gold ;
     font-size: 80px;
     text-shadow: purple 20px 
-} */
+}
+
+input{
+    color: black;
+}
+label{
+    color: red;
+    font-size: 20px;
+    font: red
+}
