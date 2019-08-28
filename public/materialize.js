@@ -407,6 +407,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }) : this;
     } });
 
+
+
+    var instance = M.Tooltip.getInstance(elem);
   fn.extend({
     add: function (selector, context) {
       return unique(cash.merge(this, cash(selector, context)));

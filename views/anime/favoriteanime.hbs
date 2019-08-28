@@ -1,10 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<img src="/incursio.gif" alt="" srcset="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anime Pagoda</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+</head>
+
+<body>
+
+
 {{#each anime}}
 
  
  
- <a href="/anime/{{_id}}">{{animeid}}<h1> {{name}}</h1></a>
+ <a href="/anime/{{_id}}">{{animeid}}<p> {{name}}</p></a>
 <h1>{{genre}}</h1>
 <h1>{{type}}</h1>
 <h1>{{StartDate}}</h1>
@@ -15,3 +31,16 @@
 
 
 {{/each}}
+
+ 
+
+
+
+  <!--  Scripts-->
+  <script src="/https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/js/materialize.js"></script>
+  <script src="/init.js"></script>
+
+</body>
+
+</html>
